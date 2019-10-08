@@ -35,3 +35,11 @@ scores = cross_val_score(model, X, y, cv=LeaveOneOut(len(X)))
 # R^2 - coefficient of determination - measures how well a model performs relative to a simple mean of the target values.
 # R^2 = 1 indicates a perfect match while R^2 = 0 indicates the model does no better than simply taking the mean of the data, and
 # negative values mean even worse models.
+
+
+
+# [Feature Engineering]
+
+
+
+
