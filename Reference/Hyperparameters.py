@@ -13,5 +13,17 @@ accuracy_score(y1, y1_model), accuracy_score(y2, y2_model)
 
 # which would yield -> (0.95999999999999996, 0.90666666666666662)
 
-# We can then combine by taking th emean to get a better measure of the global model performance. This form of cross-validation 
+# We can then combine by taking the mean to get a better measure of the global model performance. This form of cross-validation 
 # is a two-fold cross-validation.
+
+# We can also split the data into 5 groups, and use each of them in turn to evaluate the model fit on the other 4/5 of the data.
+
+from sklearn.cross_validation import cross_val_score
+cross_val_score(model, X, y, cv=5)
+
+# We might also wish to go to the extreme case in which our number of folds is equal to the number of data points; so we train on 
+# all points but one in each trial. This is known as leave-one-out cross-validation:
+
+from skearn.cross_validation import LeaveOneOut
+scores = cross_val_score(model, X, y, cv=LeaveOneOut(len(X)))
+
