@@ -1,3 +1,4 @@
+# [Cross Validation]
 
 # We can get a better sense of a model's performance using what's known as a holdout set:
 
@@ -27,3 +28,10 @@ cross_val_score(model, X, y, cv=5)
 from skearn.cross_validation import LeaveOneOut
 scores = cross_val_score(model, X, y, cv=LeaveOneOut(len(X)))
 
+
+
+# [Scoring]
+
+# R^2 - coefficient of determination - measures how well a model performs relative to a simple mean of the target values.
+# R^2 = 1 indicates a perfect match while R^2 = 0 indicates the model does no better than simply taking the mean of the data, and
+# negative values mean even worse models.
