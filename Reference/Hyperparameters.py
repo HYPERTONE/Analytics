@@ -40,6 +40,27 @@ scores = cross_val_score(model, X, y, cv=LeaveOneOut(len(X)))
 
 # [Feature Engineering]
 
+# 1. Categorical Data
+# 2. Text
+# 3. Images
+# 4. Derived Features
+# 5. Imputation (of missing data)
+
+# Categorical Features
+You may be tempted to encode data with numerical mapping (ie 'Chicago' : 1, Brooklyn : 2). It turns out that this
+is not generally a useful approach in Scikit-Learn numerical features reflect algebraic quantities (2 > 1 or Brooklyn > Chicago).
+
+Instead we can use One-Hot-Coding, which effectively creates extra columns indicating the presence or absence of a category
+with a value of 1 or 0.
+
+from sklearn.feature_extraction import DictVectorizer
+vec = DictVectorizer(sparse=False, dtype=int)
+vec.fit_transform(data)
+
+
+
+
+
 
 
 
