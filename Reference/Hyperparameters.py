@@ -58,6 +58,36 @@ vec = DictVectorizer(sparse=False, dtype=int)
 vec.fit_transform(data)
 
 
+# Text Features
+Another common need is to convert text to a set of representative numerical values.
+One of the simplest methods of encoding data is by word counts: you take each snippet of text, count the occurrences of
+each word within it,a nd put the results in a table.
+
+sample = ['problem of evil', 'evil queen', 'horizon problem']
+from sklearn.feature_extraction.text import CountVectorizer
+vec = CountVectorizer()
+X = vec.fit_transform(sample)
+
+pd.DataFrame(X.toarray(), columns=vec.get_feature_names())
+
+This however leads to raw word counts putting too much weight on words that appear frequently, and this can be suboptimal
+in some classification algorithms. One approach to fix this is using Term Frequency - Inverse Document Frequency (TF-IDF),
+which weights the word counts by a measure of how often they appear in the documents.
+
+from sklearn.feature_extraction.text import TfidVectorizer
+vec = TfidVectorizer()
+X = vec.fit_transform(sample)
+pd.DataFrame(X.toarray(), columns=vec.get_feature_names())
+
+
+
+
+
+
+
+
+
+
 
 
 
