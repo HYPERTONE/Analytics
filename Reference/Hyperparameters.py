@@ -80,6 +80,25 @@ X = vec.fit_transform(sample)
 pd.DataFrame(X.toarray(), columns=vec.get_feature_names())
 
 
+# Image Features
+
+The simplest approach is to use the pixel values themselves. Although this may not be optimal at times.
+Scikit-Image Project provides much more details on this.
+
+
+# Imputation of Missing Data
+
+Another common need in feature engineering is handling missing data.
+
+Some options include:
+  - Replacing missing values with the mean of the column (or median, or most frequent value)
+  - Using matrix completion or a robust model to handle such data
+  
+The sophisticated approaches tend to be very application-specific.
+
+from sklearn.preprocessing import Imputer
+imp = Imputer(strategy='mean')
+X2 = imp.fit_transform(X)
 
 
 
